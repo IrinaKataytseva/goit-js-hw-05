@@ -1,44 +1,47 @@
-// const getUserNames = (users) => users.map(user => user.name);
-// const flattenedCourses = students.flatMap(student => student.courses);
-const getUserNames = (users) => users.flatMap(user => user.name);
+const getTotalBalanceByGender = (users, gender) => {
+    return users
+      .filter(user => user.gender === gender)
+      .reduce((totalBalance, user) => totalBalance + user.balance, 0);
+  };
 
-console.log(
-    getUserNames([
-    {
-      name: "Moore Hensley",
-      email: "moorehensley@indexia.com",
-      balance: 2811
-    },
-    {
-      name: "Sharlene Bush",
-      email: "sharlenebush@tubesys.com",
-      balance: 3821
-    },
-    {
-      name: "Ross Vazquez",
-      email: "rossvazquez@xinware.com",
-      balance: 3793
-    },
-    {
-      name: "Elma Head",
-      email: "elmahead@omatom.com",
-      balance: 2278
-    },
-    {
-      name: "Carey Barr",
-      email: "careybarr@nurali.com",
-      balance: 3951
-    },
-    {
-      name: "Blackburn Dotson",
-      email: "blackburndotson@furnigeer.com",
-      balance: 1498
-    },
-    {
-      name: "Sheree Anthony",
-      email: "shereeanthony@kog.com",
-      balance: 2764
-    },
-  ])
-  ); // ["Moore Hensley", "Sharlene Bush", "Ross Vazquez", "Elma Head", "Carey Barr", "Blackburn Dotson", "Sheree Anthony"]
-  
+  const clients = [
+	{
+    name: "Moore Hensley",
+    gender: "male",
+    balance: 2811
+  },
+  {
+    name: "Sharlene Bush",
+    gender: "female",
+    balance: 3821
+  },
+  {
+    name: "Ross Vazquez",
+    gender: "male",
+    balance: 3793
+  },
+  {
+    name: "Elma Head",
+    gender: "female",
+    balance: 2278
+  },
+  {
+    name: "Carey Barr",
+    gender: "male",
+    balance: 3951
+  },
+  {
+    name: "Blackburn Dotson",
+    gender: "male",
+    balance: 1498
+  },
+  {
+    name: "Sheree Anthony",
+    gender: "female",
+    balance: 2764
+  }
+];
+
+console.log(getTotalBalanceByGender(clients, "male")); // 12053
+
+console.log(getTotalBalanceByGender(clients, "female")); // 8863
